@@ -1,0 +1,36 @@
+{% extends "logged_out.html" %}
+
+{% block title %}Money Manager{% endblock %}
+
+{% block main %}
+    <div>
+        <span class="t">Login</span>
+    </div>
+    <div class="tb-container">
+        <form method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" autocomplete="off" autofocus name="username" placeholder="Email or Username" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" autocomplete="off" autofocus name="password" placeholder="Password" required>
+            </div>
+            <div>
+                {% with message = get_flashed_messages() %}
+                <span id="error-msg">{{message[0]}}</span>
+                {% endwith %}
+            </div>
+            <button class="btn bk-imp-red t-honey" type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        window.addEventListener("load", function() {
+            let msg = document.getElementById("error-msg");
+            if (msg.innerHTML == undefined){
+                msg.style.display = "none";
+            }
+            else {
+                msg.style.display = "block";
+            }
+        })
+    </script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "logged_in.html" %}
+
+{% block title %}
+    Add Payment
+{% endblock %}
+
+{% block main %}
+    <div>
+        <span class="t">Add a new payment</span>
+    </div>
+    <div class="tb-container">
+        <form method="post">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <select class="form-control" id="acc" name="account">
+                            <option selected>Account</option>
+                            {% for account in accounts %}
+                                <option>{{account[0]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <select class="form-control" id="option_cat" name="category">
+                            <option selected>Category</option>
+                            {% for item in categories %}
+                                <option>{{item[0]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <input autocomplete="off" id="new_cat" autofocus class="form-control" placeholder="Or... new category" name="new_category" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" step="0.01" placeholder="Amount" name="amount" type="number" required>
+            </div>
+            <p id="error-msg"></p>
+            <button type="submit" class="btn bk-imp-red t-honey">Save</button>
+            <a href="/" class="btn bk-imp-red t-honey">Cancel</a>
+        </form>
+    </div>
+    <script>
+        window.addEventListener("load", function() {
+            let form = document.querySelector("form");
+            form.addEventListener("submit", function(event) {
+                let new_cat = document.getElementById("new_cat");
+                let option_cat = document.getElementById("option_cat");
+                let message = document.getElementById("error-msg");
+                let account = document.getElementById("acc");
+                if (new_cat.value == "" && option_cat.value == "Category") {
+                    message.innerHTML = "Must select a category or provide new one";
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                if (account.value == "Account"){
+                    message.innerHTML = "Must select an open account";
+                }
+            })
+        })
+    </script>
+
+{% endblock %}

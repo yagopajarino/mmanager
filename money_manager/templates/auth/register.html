@@ -1,0 +1,70 @@
+{% extends "logged_out.html" %}
+
+{% block title %}Welcome to MM{% endblock %}
+
+{% block main %}
+    <div>
+        <span class="t">Welcome to Money Manager!</span>
+    </div>
+    <div>
+        <span class="st">We need some data about you</span>
+    </div>
+    <div class="tb-container">
+        <form method="post">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <input autocomplete="off" autofocus class="form-control" name="FirstName" placeholder="First Name" type="text" required>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" name="LastName" placeholder="Last Name" type="text" autocomplete="off" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="email" placeholder="Email" type="email" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="username" placeholder="Username" type="text" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control" name="birth" placeholder="Date of birth" type="date" required>
+                    </div>
+                    <div class="col">
+                        <select class="form-control" name="country" id="country-selector" required>
+                            <option selected disabled>Country</option>
+                            {% for country in countries %}
+                                <option>{{country}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="password" name="password" placeholder="Password" type="password" required>
+            </div>
+                <div class="form-group">
+                <input class="form-control" id="pconfirm" name="confirmation" placeholder="Repeat password" type="password" required>
+            </div>
+            <p id="error-msg"></p>
+            <button class="btn bk-imp-red t-honey" type="submit">Register</button>
+        </form>
+    </div>
+    <script>
+        window.addEventListener('load', function() {
+            let form = document.querySelector("form");
+            form.addEventListener("submit", function(event) {
+                let password = document.querySelector("#password").value;
+                let pconfirm = document.querySelector("#pconfirm").value;
+                let message = document.querySelector("#error-msg");
+                if(password != pconfirm) {
+                    message.innerHTML = "Passwords don't coincide";
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+            })
+        })
+    </script>
+{% endblock %}

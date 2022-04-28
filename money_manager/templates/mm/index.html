@@ -1,0 +1,56 @@
+{% extends "logged_in.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+
+
+{% block main %}
+    {% with message = get_flashed_messages()%}
+        {% if message %}
+            <div class="fl-message">
+                <p>{{message[0]}}</p>
+            </div>
+        {% endif %}
+    {% endwith %}   
+    <div>
+        <span class="t">Hello {{session["user_name"]}}!</span>
+    </div>
+    <div class="tb-container">
+        <div class="row">
+            <div class="col">
+                <form action="/income" method="GET">
+                    <button type="submit" class="btn">Income</button>
+                </form>
+            </div>
+            <div class="col">
+                <form action="/payment" method="GET">
+                    <button type="submit" class="btn">Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% if data|length %}
+        <div class="tb-container">
+            <table class="table table-hover">
+                <thead>
+                    <th scope="col">Account</th>
+                    <th scope="col">Amount</th>
+                </thead>
+                <tbody>
+                    {%for row in data%}
+                        <tr>
+                            <td>{{row[0]}}</td>
+                            <td>{{row[1]|ARS}}</td>
+                        </tr>
+                    {% endfor %}
+                        <tr class="table-info">
+                            <td style="font-weight: bold;"> Total</td>
+                            <td>{{total[0]|ARS}}</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{% endblock %}

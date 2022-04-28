@@ -1,0 +1,159 @@
+header {
+    display: flex !important;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+    background: #457B9D;
+}
+
+a:hover{
+    color: white !important;
+}
+
+#logo-img {
+    padding-left: 15px;
+}
+
+main .form-control {
+     display: inline-block;
+     
+}
+
+main {
+    overflow-x: auto;
+    text-align: center;
+}
+
+.tb-container {
+    padding: 15px 25% 15px 25%;
+
+}
+
+.tb-container-20 {
+    padding: 15px 20% 15px 20%;
+}
+
+.t {
+    font-size:xx-large;
+}
+
+.bk-imp-red {
+    background-color: #E63946;
+}
+
+.t-honey {
+    color: #F1FAEE
+}
+
+.btn:hover {
+    border-color: #A8DADC;
+}
+
+html {
+    position: relative;
+    min-width: 100%;
+    min-height: 768px;
+    height: 100%;
+}
+
+#error-msg {
+    color: red;
+    padding: 10px, 0px, 10px, 0px;
+}
+
+.st {
+    font-size: small;
+}
+
+.hd-container {
+    overflow: hidden;
+    background-color:#457B9D;
+    right: -webkit-sticky;
+    top: 0;
+}
+
+.hd-container a {
+    float: right;
+    display: block;
+    color: #F1FAEE;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.hd-container a:hover {
+    text-decoration: none;
+    color: #F1FAEE;
+    background-color: #1D3557;
+}
+
+.he-50 a {
+    height: 50px;
+}
+
+table {
+    text-align: left;
+}
+
+.fl-message {
+    background-color: rgb(143, 216, 147);
+    position: relative;
+    top: 20%;
+    margin: 0 18%; 
+}
+
+.fl-message p {
+    font-size: 20px;
+}
+
+/* pallete =    #E63946 Imperial red
+                #F1FAEE Honeydew
+                #A8DADC Powder Blue
+                #457B9D Celadon BLue
+                #1D3557 Prussian Blue
+*/
+
+.topnav .icon {
+display: none;
+}
+
+@media screen and (max-width: 600px) {
+        .topnav a:not(:last-child) {display: none;}
+        .topnav a.icon {
+            float: right;
+            display: block;
+        }
+        .tb-container {
+            padding: 15px 15% 15px 15%;
+        }
+    }   
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: relative;
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+    }
+    .topnav.responsive a.icon {
+        position:absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+.description {
+    text-align: left;
+    padding-top: 20px;
+}
+
+#a-linked {
+    color: white;
+    background: rgba(230, 57, 70, .64);
+}
